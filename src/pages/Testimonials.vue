@@ -20,9 +20,9 @@
 </template>
 
 <script setup>
-const testimonials = [
-  { name: 'Amit Khanna', role: 'Business Owner', text: 'Their legal expertise and business understanding helped us navigate a complex corporate matter with confidence.' },
-  { name: 'Priya Malhotra', role: 'Private Client', text: 'Professional, responsive, and highly supportive throughout a sensitive family legal matter.' },
-  { name: 'Rohit Sethi', role: 'Entrepreneur', text: 'A dependable legal team that delivers strategic advice and strong representation.' },
-]
+  const testimonials = [
+    { name: 'Amit Khanna', role: 'Business Owner', text: 'Their legal expertise and business understanding helped us navigate a complex corporate matter with confidence.' },
+    { name: 'Priya Malhotra', role: 'Private Client', text: 'Professional, responsive, and highly supportive throughout a sensitive family legal matter.' },
+    { name: 'Rohit Sethi', role: 'Entrepreneur', text: 'A dependable legal team that delivers strategic advice and strong representation.' },
+  ]
 </script>

@@ -19,10 +19,10 @@
 </template>
 
 <script setup>
-const areas = [
-  { title: 'Corporate Law', icon: '⚖️', text: 'Business structuring, contracts, compliance, mergers, and strategic corporate advisory.' },
-  { title: 'Criminal Defense', icon: '🏛️', text: 'Strong legal defense with precision, discretion, and courtroom excellence.' },
-  { title: 'Family Law', icon: '👨‍👩‍👧', text: 'Sensitive and strategic representation in family, custody, and matrimonial matters.' },
-  { title: 'Real Estate Law', icon: '🏠', text: 'Property transactions, title disputes, leasing, and real estate compliance.' },
-]
+  const areas = [
+    { title: 'Corporate Law', icon: '⚖️', text: 'Business structuring, contracts, compliance, mergers, and strategic corporate advisory.' },
+    { title: 'Criminal Defense', icon: '🏛️', text: 'Strong legal defense with precision, discretion, and courtroom excellence.' },
+    { title: 'Family Law', icon: '👨‍👩‍👧', text: 'Sensitive and strategic representation in family, custody, and matrimonial matters.' },
+    { title: 'Real Estate Law', icon: '🏠', text: 'Property transactions, title disputes, leasing, and real estate compliance.' },
+  ]
 </script>

@@ -123,7 +123,7 @@
 }
 
 :deep(.v-card) {
-  @apply bg-gray-200;
-  @apply dark:bg-black dark:bg-linear-to-r dark:from-primary/50 dark:to-primary/30 dark:text-white/80;
+  background-color: #e5e7eb; /* Tailwind bg-gray-200 */
+  /* The following dark mode styles are not directly portable, but you can use CSS variables or manual overrides if needed */
 }
 </style>

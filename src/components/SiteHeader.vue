@@ -22,9 +22,12 @@
         </router-link>
       </nav>
 
-      <button class="bg-[#b9923f] hover:bg-[#a88435] text-white px-5 py-3 rounded-2xl text-sm font-semibold shadow-sm transition">
+      <router-link
+        class="bg-[#b9923f] hover:bg-[#a88435] text-white px-5 py-3 rounded-2xl text-sm font-semibold shadow-sm transition"
+        to="/contact"
+      >
         Book Consultation
-      </button>
+      </router-link>
     </div>
   </header>
 </template>

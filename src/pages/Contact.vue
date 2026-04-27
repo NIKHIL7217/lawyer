@@ -11,13 +11,47 @@
     <section class="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-10">
       <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
         <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
-        <form class="space-y-5">
-          <input type="text" placeholder="Your Name" class="w-full px-5 py-4 rounded-2xl border border-slate-300" />
-          <input type="email" placeholder="Email Address" class="w-full px-5 py-4 rounded-2xl border border-slate-300" />
-          <input type="text" placeholder="Subject" class="w-full px-5 py-4 rounded-2xl border border-slate-300" />
-          <textarea rows="5" placeholder="Your Message" class="w-full px-5 py-4 rounded-2xl border border-slate-300"></textarea>
-          <button class="bg-[#b9923f] text-white px-6 py-4 rounded-2xl font-semibold">Book Consultation</button>
+
+        <form class="space-y-5" @submit.prevent="submitForm">
+          <input
+            v-model="form.name"
+            class="w-full px-5 py-4 rounded-2xl border border-slate-300"
+            placeholder="Your Name"
+            required
+            type="text"
+          >
+
+          <input
+            v-model="form.email"
+            class="w-full px-5 py-4 rounded-2xl border border-slate-300"
+            placeholder="Email Address"
+            required
+            type="email"
+          >
+
+          <input
+            v-model="form.subject"
+            class="w-full px-5 py-4 rounded-2xl border border-slate-300"
+            placeholder="Subject"
+            required
+            type="text"
+          >
+
+          <textarea
+            v-model="form.message"
+            class="w-full px-5 py-4 rounded-2xl border border-slate-300"
+            placeholder="Your Message"
+            required
+            rows="5"
+          />
+
+          <button class="bg-[#b9923f] text-white px-6 py-4 rounded-2xl font-semibold" :disabled="loading">
+            <span v-if="!loading">Book Consultation</span>
+            <span v-else>Sending...</span>
+          </button>
         </form>
+
+        <div v-if="success" class="mt-6 text-green-600 font-semibold">Thank you! Your request has been sent. We will contact you soon.</div>
       </div>
 
       <div class="space-y-6">
@@ -40,5 +74,39 @@
 </template>
 
 <script setup>
-// Contact Page
+  import { ref } from 'vue'
+
+  const form = ref({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  })
+  const loading = ref(false)
+  const success = ref(false)
+
+  async function submitForm () {
+    loading.value = true
+    success.value = false
+    try {
+      // Replace the Formspree endpoint below with your own or backend endpoint
+      const res = await fetch('https://formspree.io/f/xqkrzqzv', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.value.name,
+          email: form.value.email,
+          subject: form.value.subject,
+          message: form.value.message,
+        }),
+      })
+      if (res.ok) {
+        success.value = true
+        form.value = { name: '', email: '', subject: '', message: '' }
+      }
+    } catch {
+    // Optionally handle error
+    }
+    loading.value = false
+  }
 </script>
