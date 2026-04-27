@@ -43,24 +43,26 @@
 
         <v-card
           v-for="link in links"
-          :href="link.href"
           :key="link.href"
-          :subtitle="link.subtitle"
-          :title="link.title"
           class="
             h-full py-3 rounded-3xl transition-[border-radius] hover:rounded-lg
             flex items-center [&>.v-card-item]:w-full
             group"
+          :href="link.href"
           rel="noopener noreferrer"
+          :subtitle="link.subtitle"
           target="_blank"
+          :title="link.title"
           variant="flat"
         >
           <template #prepend>
-            <v-avatar :icon="link.icon" size="60" variant="tonal" class="ml-2 mr-4" />
+            <v-avatar class="ml-2 mr-4" :icon="link.icon" size="60" variant="tonal" />
           </template>
+
           <template #append>
             <v-icon class="ml-1 opacity-0 transition group-hover:opacity-90 group-hover:-translate-x-1" icon="mdi-open-in-new" />
           </template>
+
           <template #subtitle>
             <div class="line-clamp-2 text-wrap">{{ link.subtitle }}</div>
           </template>
@@ -100,14 +102,24 @@
 </script>
 
 <style scoped>
-@reference "../styles/tailwind.css";
+@import "../styles/tailwind.css";
 
 /*
   1. mixing helper classes and @apply for demonstration purposes only
   2. the classes below are NOT wrapped in any CSS layer, so they "win" over everything else
 */
+
 .hero-card {
-  @apply py-3 md:pr-[120px] w-full transition-none;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  width: 100%;
+  transition-property: none;
+}
+
+@media (min-width: 768px) {
+  .hero-card {
+    padding-right: 120px;
+  }
 }
 
 :deep(.v-card) {
