@@ -12,7 +12,14 @@
         </div>
       </div>
 
-      <div class="h-full min-h-105 bg-[url('https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center" />
+      <div class="flex justify-center items-center h-full w-full p-4">
+        <img
+          alt="Lawyer hero section image"
+          class="w-full max-w-xl h-auto rounded-2xl shadow-lg object-cover object-center"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
+          src="/src/assets/photo/image.png"
+        >
+      </div>
     </div>
   </section>
 </template>

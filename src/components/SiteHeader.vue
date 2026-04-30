@@ -5,7 +5,7 @@
         <div class="w-11 h-11 rounded-2xl bg-[#0d2a52] text-white flex items-center justify-center text-xl shadow-sm">⚖️</div>
 
         <div>
-          <h1 class="font-bold text-lg tracking-wide">Sharma & Associates</h1>
+          <h1 class="font-bold text-lg tracking-wide">Ajay Singh Yaduvanshi</h1>
           <p class="text-xs text-slate-500">Trusted Legal Counsel</p>
         </div>
       </div>

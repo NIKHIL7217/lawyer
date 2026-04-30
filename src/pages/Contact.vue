@@ -68,9 +68,21 @@
           <p class="text-slate-600">Saturday: 10:00 AM – 4:00 PM</p>
           <p class="text-slate-600">Sunday: Closed</p>
         </div>
+
+        <iframe
+          allowfullscreen=""
+          class="bg-white rounded-3xl"
+          height="320"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d354.67281325343356!2d75.742998668203!3d26.840348095589242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1777351159986!5m2!1sen!2sin"
+          style="border:0;"
+          width="460"
+        />
       </div>
     </section>
   </div>
+
 </template>
 
 <script setup>
