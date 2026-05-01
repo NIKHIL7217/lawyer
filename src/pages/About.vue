@@ -21,7 +21,7 @@
         <p class="text-slate-600 leading-8" :class="lineHeightClass">{{ t('introP2') }}</p>
       </div>
 
-      <div class="h-125 rounded-3xl bg-[url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1400&auto=format&fit=crop')] bg-cover bg-center shadow-xl" />
+      <div class="h-125 rounded-3xl bg-[url('@/assets/photo/image2.png')] bg-cover bg-center shadow-xl" />
     </section>
 
     <!-- Mission Vision -->
