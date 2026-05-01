@@ -1,24 +1,38 @@
+<script setup>
+  import { computed } from 'vue'
+  import { useLanguage } from '@/composables/language'
+  import { translations } from '@/locales'
+  const { lang } = useLanguage()
+  function t (key) {
+    const keys = key.split('.')
+    let value = translations[lang.value]
+    for (const k of keys) value = value[k]
+    return value
+  }
+  const lineHeightClass = computed(() => lang.value === 'hi' ? 'leading-8' : 'leading-7')
+  const currentYear = new Date().getFullYear()
+</script>
 <template>
   <footer class="bg-[#0d2a52] text-white mt-16">
     <div class="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-4 gap-10">
       <div>
-        <h4 class="font-bold text-lg mb-4">Contact Information</h4>
-        <p class="text-sm text-slate-300 leading-7">123 Legal Tower, New Delhi<br>+91 90000 00000<br>hello@sharmafirm.com</p>
+        <h4 class="font-bold text-lg mb-4">{{ t('footer.contactInfo') }}</h4>
+        <p :class="['text-sm text-slate-300', lineHeightClass]">123 Legal Tower, New Delhi<br>+91 90000 00000<br>hello@sharmafirm.com</p>
       </div>
 
       <div>
-        <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+        <h4 class="font-bold text-lg mb-4">{{ t('footer.quickLinks') }}</h4>
 
         <ul class="space-y-2 text-sm text-slate-300">
-          <li><router-link class="hover:text-[#b9923f]" to="/">Home</router-link></li>
-          <li><router-link class="hover:text-[#b9923f]" to="/about">About</router-link></li>
-          <li><router-link class="hover:text-[#b9923f]" to="/practice-areas">Practice Areas</router-link></li>
-          <li><router-link class="hover:text-[#b9923f]" to="/careers">Careers</router-link></li>
+          <li><router-link class="hover:text-[#b9923f]" to="/">{{ t('footer.home') }}</router-link></li>
+          <li><router-link class="hover:text-[#b9923f]" to="/about">{{ t('footer.about') }}</router-link></li>
+          <li><router-link class="hover:text-[#b9923f]" to="/practice-areas">{{ t('footer.practiceAreas') }}</router-link></li>
+          <li><router-link class="hover:text-[#b9923f]" to="/careers">{{ t('footer.careers') }}</router-link></li>
         </ul>
       </div>
 
       <div>
-        <h4 class="font-bold text-lg mb-4">Follow Us</h4>
+        <h4 class="font-bold text-lg mb-4">{{ t('footer.followUs') }}</h4>
 
         <div class="flex gap-3 text-xl">
           <a
@@ -77,13 +91,13 @@
         </div>
       </div>
 
-      <div>
+      <!-- <div>
         <h4 class="font-bold text-lg mb-4">Newsletter Signup</h4>
         <input class="w-full px-4 py-3 rounded-xl text-slate-900 mb-3 bg-[#ffffff] text-center" placeholder="Enter your email">
         <button class="w-full bg-[#0b1639] py-3 rounded-xl font-semibold">Subscribe</button>
-      </div>
+      </div> -->
     </div>
 
-    <div class="border-t border-white/10 py-5 text-center text-sm text-slate-400">© 2025 Sharma & Associates. All rights reserved.</div>
+    <div class="border-t border-white/10 py-5 text-center text-sm text-slate-400">© {{ currentYear }} Ajay Singh Yaduvanshi. All rights reserved.</div>
   </footer>
 </template>

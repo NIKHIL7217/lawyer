@@ -2,21 +2,22 @@
   <div class="bg-[#f5f7fb] text-slate-900">
     <section class="bg-[#0d2a52] text-white py-24 text-center">
       <div class="max-w-5xl mx-auto px-6">
-        <p class="uppercase tracking-[0.3em] text-sm text-[#d7bc7a] mb-4">Contact Us</p>
-        <h1 class="text-4xl md:text-6xl font-bold mb-6">Get in Touch With Our Legal Team</h1>
-        <p class="text-lg text-slate-200 leading-8">Schedule a consultation or speak with our team for trusted legal guidance.</p>
+        <p class="uppercase tracking-[0.3em] text-sm text-[#d7bc7a] mb-4">{{ t('heroTag') }}</p>
+        <h1 class="text-4xl md:text-6xl font-bold mb-6" :class="lineHeightClass">{{ t('heroTitle') }}</h1>
+        <p class="text-lg text-slate-200 leading-8" :class="lineHeightClass">{{ t('heroDesc') }}</p>
       </div>
     </section>
 
     <section class="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-10">
+      <!-- Left: Contact Form -->
       <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
-        <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
+        <h3 class="text-2xl font-bold mb-6" :class="lineHeightClass">{{ t('formTitle') }}</h3>
 
         <form class="space-y-5" @submit.prevent="submitForm">
           <input
             v-model="form.name"
             class="w-full px-5 py-4 rounded-2xl border border-slate-300"
-            placeholder="Your Name"
+            :placeholder="t('name')"
             required
             type="text"
           >
@@ -24,7 +25,7 @@
           <input
             v-model="form.email"
             class="w-full px-5 py-4 rounded-2xl border border-slate-300"
-            placeholder="Email Address"
+            :placeholder="t('email')"
             required
             type="email"
           >
@@ -32,41 +33,36 @@
           <input
             v-model="form.subject"
             class="w-full px-5 py-4 rounded-2xl border border-slate-300"
-            placeholder="Subject"
+            :placeholder="t('subject')"
             required
             type="text"
           >
 
           <textarea
             v-model="form.message"
-            class="w-full px-5 py-4 rounded-2xl border border-slate-300"
-            placeholder="Your Message"
+            class="w-full px-5 py-4 rounded-2xl border border-slate-300 min-h-30 resize-y"
+            :placeholder="t('message')"
             required
-            rows="5"
           />
 
-          <button class="bg-[#b9923f] text-white px-6 py-4 rounded-2xl font-semibold" :disabled="loading">
-            <span v-if="!loading">Book Consultation</span>
-            <span v-else>Sending...</span>
+          <button
+            class="w-full bg-[#0d2a52] hover:bg-[#143a6b] text-white font-semibold py-4 rounded-2xl transition disabled:opacity-60"
+            :disabled="loading"
+            type="submit"
+          >
+            {{ loading ? t('sending') : t('book') }}
           </button>
+
+          <div v-if="success" class="text-green-600 font-semibold text-center mt-2">{{ t('success') }}</div>
         </form>
-
-        <div v-if="success" class="mt-6 text-green-600 font-semibold">Thank you! Your request has been sent. We will contact you soon.</div>
       </div>
-
-      <div class="space-y-6">
+      <!-- Right: Office Hours & Map -->
+      <div class="flex flex-col gap-6">
         <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
-          <h3 class="text-2xl font-bold mb-4">Contact Information</h3>
-          <p class="text-slate-600 leading-8">123 Legal Tower, Connaught Place, New Delhi, India</p>
-          <p class="text-slate-600">+91 90000 00000</p>
-          <p class="text-slate-600">hello@sharmafirm.com</p>
-        </div>
-
-        <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
-          <h3 class="text-2xl font-bold mb-4">Office Hours</h3>
-          <p class="text-slate-600">Monday - Friday: 9:00 AM – 7:00 PM</p>
-          <p class="text-slate-600">Saturday: 10:00 AM – 4:00 PM</p>
-          <p class="text-slate-600">Sunday: Closed</p>
+          <h3 class="text-2xl font-bold mb-4" :class="lineHeightClass">{{ t('officeHours') }}</h3>
+          <p class="text-slate-600" :class="lineHeightClass">{{ t('hours1') }}</p>
+          <p class="text-slate-600" :class="lineHeightClass">{{ t('hours2') }}</p>
+          <p class="text-slate-600" :class="lineHeightClass">{{ t('hours3') }}</p>
         </div>
 
         <iframe
@@ -82,11 +78,16 @@
       </div>
     </section>
   </div>
-
 </template>
 
-<script setup>
-  import { ref } from 'vue'
+    <script setup>
+  import { computed, ref } from 'vue'
+  import { useLanguage } from '@/composables/language'
+  import { translations } from '@/locales'
+  const { lang } = useLanguage()
+  const t = key => translations[lang.value].contact[key]
+  // Set your own line height class here, or use a hardcoded value per page/language
+  const lineHeightClass = computed(() => lang.value === 'hi' ? 'leading-10' : 'leading-7')
 
   const form = ref({
     name: '',
@@ -117,8 +118,8 @@
         form.value = { name: '', email: '', subject: '', message: '' }
       }
     } catch {
-    // Optionally handle error
+      // Optionally handle error
     }
     loading.value = false
   }
-</script>
+    </script>

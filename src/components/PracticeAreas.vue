@@ -1,6 +1,6 @@
 <template>
   <section class="max-w-7xl mx-auto px-6 py-10">
-    <h3 class="text-3xl font-bold text-center mb-10">Practice Areas</h3>
+    <h3 class="text-3xl font-bold text-center mb-10">{{ t('practice.title') }}</h3>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       <div v-for="item in practiceAreas" :key="item.title" class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition">
@@ -13,14 +13,17 @@
 </template>
 
 <script setup>
-  const practiceAreas = [
-    { title: 'Corporate Law', icon: '⚖️', text: 'Strategic legal counsel for contracts, governance, and compliance.' },
-    { title: 'Criminal Defense', icon: '🏛️', text: 'Strong defense strategies with precision and discretion.' },
-    { title: 'Family Law', icon: '👨‍👩‍👧', text: 'Compassionate support for family matters and settlements.' },
-    { title: 'Real Estate', icon: '🏠', text: 'Trusted legal guidance for property transactions and disputes.' },
-    { title: 'Real Estate', icon: '🏠', text: 'Trusted legal guidance for property transactions and disputes.' },
-    { title: 'Real Estate', icon: '🏠', text: 'Trusted legal guidance for property transactions and disputes.' },
-    { title: 'Real Estate', icon: '🏠', text: 'Trusted legal guidance for property transactions and disputes.' },
-    { title: 'Real Estate', icon: '🏠', text: 'Trusted legal guidance for property transactions and disputes.' },
-  ]
+  import { computed } from 'vue'
+  import { useLanguage } from '@/composables/language'
+  import { translations } from '@/locales'
+  const { lang } = useLanguage()
+
+  function t (key) {
+    const keys = key.split('.')
+    let value = translations[lang.value]
+    for (const k of keys) value = value[k]
+    return value
+  }
+
+  const practiceAreas = computed(() => t('practice.areas'))
 </script>

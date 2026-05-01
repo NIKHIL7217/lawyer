@@ -1,14 +1,38 @@
+<script setup>
+  import { computed } from 'vue'
+  import { useRouter } from 'vue-router'
+  import { useLanguage } from '@/composables/language'
+  import { translations } from '@/locales'
+  const { lang } = useLanguage()
+  const router = useRouter()
+
+  function t (key) {
+    const keys = key.split('.')
+    let value = translations[lang.value].hero
+    for (const k of keys) value = value[k]
+    return value
+  }
+  // Set your own line height class here, or use a hardcoded value per language
+  const lineHeightClass = computed(() => lang.value === 'hi' ? 'leading-18' : 'leading-15')
+
+  function goToServices () {
+    router.push('/practice-areas')
+  }
+  function goToTeam () {
+    router.push('/team')
+  }
+</script>
 <template>
   <section class="max-w-7xl mx-auto px-6 pt-8 pb-16">
     <div class="grid lg:grid-cols-2 gap-8 items-center bg-linear-to-r from-[#0d2a52] to-[#163b6e] rounded-3xl overflow-hidden shadow-xl">
       <div class="p-10 lg:p-14 text-white">
-        <p class="uppercase tracking-[0.3em] text-xs text-[#d7bc7a] mb-4">Premium Legal Services</p>
-        <h2 class="text-4xl lg:text-6xl font-bold leading-tight mb-5">Trusted Legal Counsel. Exceptional Results.</h2>
-        <p class="text-slate-200 text-lg mb-8 max-w-xl">High-end legal representation for businesses, families, and individuals seeking clarity, confidence, and results.</p>
+        <p class="uppercase tracking-[0.3em] text-xs text-[#d7bc7a] mb-4">{{ t('tagline') }}</p>
+        <h2 :class="['text-4xl lg:text-6xl font-bold mb-5', lineHeightClass]">{{ t('headline') }}</h2>
+        <p class="text-slate-200 text-lg mb-8 max-w-xl" :class="lineHeightClass">{{ t('desc') }}</p>
 
         <div class="flex gap-4">
-          <button class="bg-[#b9923f] px-6 py-3 rounded-2xl font-semibold">Our Services</button>
-          <button class="border border-white/30 px-6 py-3 rounded-2xl font-semibold">Meet Our Team</button>
+          <button class="bg-[#b9923f] px-6 py-3 rounded-2xl font-semibold" @click="goToServices">{{ t('services') }}</button>
+          <button class="border border-white/30 px-6 py-3 rounded-2xl font-semibold" @click="goToTeam">{{ t('team') }}</button>
         </div>
       </div>
 
