@@ -65,7 +65,7 @@
         </button>
 
         <transition name="fade">
-          <div v-if="menuOpen" class="absolute top-20 right-6 bg-white rounded-xl shadow-lg py-4 px-6 flex flex-col gap-4 z-50 min-w-45 border border-slate-200">
+          <div v-if="menuOpen" ref="menuRef" class="absolute top-20 right-6 bg-white rounded-xl shadow-lg py-4 px-6 flex flex-col gap-4 z-50 min-w-45 border border-slate-200">
             <router-link
               v-for="item in navItems"
               :key="item.label"
@@ -100,10 +100,24 @@
 </template>
 
 <script setup>
-  import { computed, ref } from 'vue'
+  import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
   import { useLanguage } from '@/composables/language'
   import { translations } from '@/locales'
   const menuOpen = ref(false)
+  const menuRef = ref(null)
+  // Close menu when clicking outside
+  function handleClickOutside (event) {
+    if (menuOpen.value && menuRef.value && !menuRef.value.contains(event.target)) {
+      menuOpen.value = false
+    }
+  }
+
+  onMounted(() => {
+    document.addEventListener('mousedown', handleClickOutside)
+  })
+  onBeforeUnmount(() => {
+    document.removeEventListener('mousedown', handleClickOutside)
+  })
   const { lang, setLang } = useLanguage()
   const toggleLang = () => setLang(lang.value === 'en' ? 'hi' : 'en')
   function t (key) {

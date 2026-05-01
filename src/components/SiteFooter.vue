@@ -17,7 +17,7 @@
     <div class="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-4 gap-10">
       <div>
         <h4 class="font-bold text-lg mb-4">{{ t('footer.contactInfo') }}</h4>
-        <p :class="['text-sm text-slate-300', lineHeightClass]">123 Legal Tower, New Delhi<br>+91 90000 00000<br>hello@sharmafirm.com</p>
+        <p :class="['text-sm text-slate-300', lineHeightClass]">47/36 Kiran Path Mansarovar, Jaipur<br>+91 9928824112<br>ajayyaduvanshi@gmail.com</p>
       </div>
 
       <div>

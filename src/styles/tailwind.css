@@ -2,7 +2,7 @@
 @import "tailwindcss/preflight" layer(tailwind-reset);
 @import "tailwindcss/utilities" layer(tailwind-utilities);
 
-@theme {
+:root {
   --font-heading: "Roboto", sans-serif;
   --font-body: "Roboto", sans-serif;
   --font-mono: "Roboto Mono", monospace;

@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-  const phone = '919000000000' // Change to your WhatsApp number
+  const phone = '919928824112' // Change to your WhatsApp number
   const message = encodeURIComponent('Hello! I would like to inquire about your legal services.')
   const whatsappUrl = `https://wa.me/${phone}?text=${message}`
 </script>
