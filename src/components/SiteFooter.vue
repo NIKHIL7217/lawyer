@@ -27,7 +27,7 @@
           <li><router-link class="hover:text-[#b9923f]" to="/">{{ t('footer.home') }}</router-link></li>
           <li><router-link class="hover:text-[#b9923f]" to="/about">{{ t('footer.about') }}</router-link></li>
           <li><router-link class="hover:text-[#b9923f]" to="/practice-areas">{{ t('footer.practiceAreas') }}</router-link></li>
-          <li><router-link class="hover:text-[#b9923f]" to="/careers">{{ t('footer.careers') }}</router-link></li>
+          <!-- <li><router-link class="hover:text-[#b9923f]" to="/careers">{{ t('footer.careers') }}</router-link></li> -->
         </ul>
       </div>
 

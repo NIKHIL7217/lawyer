@@ -45,9 +45,9 @@ export default {
     phone: '+91 90000 00000',
     email2: 'hello@sharmafirm.com',
     officeHours: 'कार्यालय समय',
-    hours1: 'सोमवार - शुक्रवार: 9:00 AM - 7:00 PM',
-    hours2: 'शनिवार: 10:00 AM - 4:00 PM',
-    hours3: 'रविवार: बंद',
+    hours1: 'सोमवार - शुक्रवार :- 9:00 AM - 7:00 PM',
+    hours2: 'शनिवार :- 10:00 AM - 4:00 PM',
+    hours3: 'रविवार :- अवकाश',
   },
   about: {
     about: 'हमारे बारे में',
