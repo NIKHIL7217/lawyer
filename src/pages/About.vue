@@ -3,7 +3,7 @@
     <!-- Hero -->
     <section class="bg-[#0d2a52] text-white py-24">
       <div class="max-w-7xl mx-auto px-6 text-center">
-        <p class="uppercase tracking-widest text-sm text-[#d7bc7a] mb-4">{{ t('heroTag') }}</p>
+        <p class="uppercase font-bold tracking-widest text-sm text-[#d7bc7a] mb-4">{{ t('heroTag') }}</p>
         <h1 class="text-4xl md:text-6xl font-bold mb-6" :class="lineHeightHero">{{ t('heroTitle') }}</h1>
 
         <p class="max-w-3xl mx-auto text-lg text-slate-200 leading-8" :class="lineHeightDesc">
@@ -15,7 +15,7 @@
     <!-- About Intro -->
     <section class="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
       <div>
-        <p class="text-sm font-semibold text-[#b9923f] uppercase tracking-widest mb-3">{{ t('introTag') }}</p>
+        <p class="text-sm font-bold text-[#b9923f] uppercase tracking-widest mb-3">{{ t('introTag') }}</p>
         <h2 class="text-4xl font-bold mb-6 leading-tight" :class="lineHeightDesc">{{ t('introTitle') }}</h2>
         <p class="text-slate-600 leading-8 mb-5" :class="lineHeightPara">{{ t('introP1') }}</p>
         <p class="text-slate-600 leading-8" :class="lineHeightPara">{{ t('introP2') }}</p>
@@ -27,13 +27,13 @@
     <!-- Mission Vision -->
     <section class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-2 gap-8">
       <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
-        <p class="text-sm font-semibold text-[#b9923f] uppercase tracking-widest mb-3">{{ t('missionTag') }}</p>
+        <p class="text-sm font-bold text-[#b9923f] uppercase tracking-widest mb-3">{{ t('missionTag') }}</p>
         <h3 class="text-2xl font-bold mb-4" :class="lineHeightDesc">{{ t('missionTitle') }}</h3>
         <p class="text-slate-600 leading-8" :class="lineHeightPara">{{ t('missionDesc') }}</p>
       </div>
 
       <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
-        <p class="text-sm font-semibold text-[#b9923f] uppercase tracking-widest mb-3">{{ t('visionTag') }}</p>
+        <p class="text-sm font-bold text-[#b9923f] uppercase tracking-widest mb-3">{{ t('visionTag') }}</p>
         <h3 class="text-2xl font-bold mb-4" :class="lineHeightDesc">{{ t('visionTitle') }}</h3>
         <p class="text-slate-600 leading-8" :class="lineHeightPara">{{ t('visionDesc') }}</p>
       </div>
@@ -42,7 +42,7 @@
     <!-- Values -->
     <section class="max-w-7xl mx-auto px-6 py-20">
       <div class="text-center mb-12">
-        <p class="text-sm font-semibold text-[#b9923f] uppercase tracking-widest mb-3">{{ t('valuesTag') }}</p>
+        <p class="text-sm font-bold text-[#b9923f] uppercase tracking-widest mb-3">{{ t('valuesTag') }}</p>
         <h2 class="text-4xl font-bold" :class="lineHeightDesc">{{ t('valuesTitle') }}</h2>
       </div>
 
@@ -57,7 +57,7 @@
     <!-- Commitment -->
     <section class="bg-white py-20 border-y border-slate-200">
       <div class="max-w-5xl mx-auto px-6 text-center">
-        <p class="text-sm font-semibold text-[#b9923f] uppercase tracking-widest mb-3">{{ t('commitmentTag') }}</p>
+        <p class="text-sm font-bold text-[#b9923f] uppercase tracking-widest mb-3">{{ t('commitmentTag') }}</p>
         <h2 class="text-4xl font-bold mb-6" :class="lineHeightDesc">{{ t('commitmentTitle') }}</h2>
         <p class="text-slate-600 text-lg leading-8" :class="lineHeightPara">{{ t('commitmentDesc') }}</p>
       </div>

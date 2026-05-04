@@ -27,7 +27,7 @@
   <section class="max-w-7xl mx-auto px-6 pt-8 pb-16">
     <div class="grid lg:grid-cols-2 gap-8 items-center bg-linear-to-r from-[#0d2a52] to-[#163b6e] rounded-3xl overflow-hidden shadow-xl">
       <div class="p-10 lg:p-14 text-white">
-        <p class="uppercase tracking-widest text-xs text-[#d7bc7a] mb-4">{{ t('tagline') }}</p>
+        <p class="uppercase font-bold tracking-widest text-xs text-[#d7bc7a] mb-4">{{ t('tagline') }}</p>
         <h2 :class="['text-4xl lg:text-6xl font-bold mb-5', lineHeightClass]">{{ t('headline') }}</h2>
         <p class="text-slate-200 text-lg mb-8 max-w-xl" :class="lineHeightDesc">{{ t('desc') }}</p>
 
