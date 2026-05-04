@@ -75,7 +75,7 @@
   const t = key => aboutPage.value[key]
   const values = computed(() => aboutPage.value.values)
   // Set your own line height class here, or use a hardcoded value per page/language
-  const lineHeightHero = computed(() => lang.value === 'hi' ? 'leading-12' : 'leading-10')
-  const lineHeightDesc = computed(() => lang.value === 'hi' ? 'leading-9' : 'leading-7')
+  const lineHeightHero = computed(() => lang.value === 'hi' ? 'leading-19' : 'leading-17')
+  const lineHeightDesc = computed(() => lang.value === 'hi' ? 'leading-11' : 'leading-7')
   const lineHeightPara = computed(() => lang.value === 'hi' ? 'leading-8' : 'leading-8')
 </script>
