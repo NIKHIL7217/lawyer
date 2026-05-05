@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <a
     aria-label="Chat on WhatsApp"
     class="fixed z-50 bottom-6 right-6 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] shadow-lg hover:bg-[#1ebe57] transition"
@@ -22,4 +22,110 @@
   const phone = '919928824112' // Change to your WhatsApp number
   const message = encodeURIComponent('Hello! I would like to inquire about your legal services.')
   const whatsappUrl = `https://wa.me/${phone}?text=${message}`
+</script> -->
+
+<template>
+  <a
+    aria-label="Chat on WhatsApp"
+    class="whatsapp-fab"
+    href="https://wa.me/919928824112"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <span aria-hidden="true" class="whatsapp-fab__pulse" />
+    <v-icon icon="mdi-whatsapp" :size="iconSize" />
+  </a>
+</template>
+
+<script setup>
+  import { computed } from 'vue'
+  import { useDisplay } from 'vuetify'
+
+  const { smAndDown } = useDisplay()
+  const iconSize = computed(() => (smAndDown.value ? 26 : 30))
 </script>
+
+<style scoped>
+/* ── Design Tokens ── */
+.whatsapp-fab {
+  --fab-size: 60px;
+  --fab-bg: #25d366;
+  --fab-offset: 22px;
+}
+
+/* ── FAB ── */
+.whatsapp-fab {
+  position: fixed;
+  right: var(--fab-offset);
+  bottom: var(--fab-offset);
+  width: var(--fab-size);
+  height: var(--fab-size);
+  border-radius: 50%;
+  background: var(--fab-bg);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 9999;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.whatsapp-fab:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 10px 32px rgba(37, 211, 102, 0.45);
+}
+
+.whatsapp-fab:active {
+  transform: translateY(0) scale(1);
+}
+
+/* ── Pulse Ring ── */
+.whatsapp-fab__pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--fab-bg);
+  animation: fabPulse 2.5s ease-out infinite;
+}
+
+@keyframes fabPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* ── Responsive — Tablet ── */
+@media (min-width: 600px) and (max-width: 959.98px) {
+  .whatsapp-fab {
+    --fab-size: 56px;
+    --fab-offset: 20px;
+  }
+}
+
+/* ── Responsive — Mobile ── */
+@media (max-width: 599.98px) {
+  .whatsapp-fab {
+    --fab-size: 50px;
+    --fab-offset: 14px;
+  }
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-fab {
+    transition: none;
+  }
+
+  .whatsapp-fab__pulse {
+    animation: none;
+    display: none;
+  }
+}
+</style>

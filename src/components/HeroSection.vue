@@ -24,11 +24,11 @@
   }
 </script>
 <template>
-  <section class="max-w-7xl mx-auto px-6 pt-8 pb-16">
+  <section class="max-w-7xl mx-auto px-6 pt-8 pb-11">
     <div class="grid lg:grid-cols-2 gap-8 items-center bg-linear-to-r from-[#0d2a52] to-[#163b6e] rounded-3xl overflow-hidden shadow-xl">
       <div class="p-10 lg:p-14 text-white">
-        <p class="uppercase font-bold tracking-widest text-xs text-[#d7bc7a] mb-4">{{ t('tagline') }}</p>
-        <h2 :class="['text-4xl lg:text-6xl font-bold mb-5', lineHeightClass]">{{ t('headline') }}</h2>
+        <p class="uppercase font-bold text-xs text-[#d7bc7a] mb-4">{{ t('tagline') }}</p>
+        <h2 :class="['text-4xl lg:text-5xl font-bold mb-5', lineHeightClass]">{{ t('headline') }}</h2>
         <p class="text-slate-200 text-lg mb-8 max-w-xl" :class="lineHeightDesc">{{ t('desc') }}</p>
 
         <div class="flex gap-4">
@@ -37,10 +37,10 @@
         </div>
       </div>
 
-      <div class="flex justify-center items-center h-full w-full p-4">
+      <div class="image flex justify-end items-end h-full w-full p-0">
         <img
           alt="Lawyer hero section image"
-          class="w-full max-w-xl h-auto rounded-2xl shadow-lg object-cover object-center"
+          class="w-80 max-w-xl h-40% rounded-2xl object-cover object-center"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
           src="/src/assets/photo/image.png"
         >
@@ -48,3 +48,6 @@
     </div>
   </section>
 </template>
+
+<style scoped>
+</style>

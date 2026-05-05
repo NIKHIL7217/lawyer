@@ -3,7 +3,7 @@
     <section class="bg-[#0d2a52] text-white py-24 text-center">
       <div class="max-w-5xl mx-auto px-6">
         <p class="uppercase font-bold tracking-widesttext-sm text-[#d7bc7a] mb-4">{{ t('heroTag') }}</p>
-        <h1 class="text-4xl md:text-6xl font-bold mb-6" :class="lineHeightHero">{{ t('heroTitle') }}</h1>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6" :class="lineHeightHero">{{ t('heroTitle') }}</h1>
         <p class="text-lg text-slate-200 leading-8" :class="lineHeightDesc">{{ t('heroDesc') }}</p>
       </div>
     </section>
