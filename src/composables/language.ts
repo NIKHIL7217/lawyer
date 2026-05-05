@@ -10,7 +10,7 @@ interface LanguageContext {
 const LanguageSymbol: InjectionKey<LanguageContext> = Symbol('Language')
 
 export function provideLanguage () {
-  const lang = ref<Language>('en')
+  const lang = ref<Language>('hi')//           default language yaha se set kar sakte ho
   const setLang = (language: Language) => {
     lang.value = language
   }
