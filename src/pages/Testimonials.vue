@@ -10,7 +10,7 @@
 
     <section class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div v-for="item in testimonials" :key="item.name" class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm">
-        <p class="text-4xl text-[#b9923f] mb-3">“</p>
+        <p class="text-4xl text-[#b9923f] mb-3">⭐⭐⭐⭐⭐</p>
         <p class="text-slate-600 leading-8 mb-5" :class="lineHeightClass">{{ item.text }}</p>
         <h4 class="font-bold" :class="lineHeightClass">{{ item.name }}</h4>
         <p class="text-sm text-slate-500" :class="lineHeightClass">{{ item.role }}</p>
